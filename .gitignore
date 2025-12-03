@@ -1,0 +1,25 @@
+# --- 1. Môi trường & Hệ thống ---
+venv/
+dagster_home/
+.env
+__pycache__/
+*.pyc
+.vscode/
+
+# --- 2. Dữ liệu (Chặn file Excel và folder data) ---
+*.xlsx
+*.xls
+*.csv
+CNX_Fake/
+HST_Fake/
+DIM/
+data_inputs/
+
+# --- 3.  (SSAS)
+**/.vs/
+[Bb]in/
+[Oo]bj/
+*.deploymenttargets
+*.deploymentoptions
+*.asdatabase
+*.vsidx

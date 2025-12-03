@@ -1,0 +1,390 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "discourageImplicitMeasures": true,
+    "dataSources": [
+      {
+        "name": "SqlServer LAPTOP-UVA5Q9QT LailoDWH",
+        "connectionString": "Provider=SQLOLEDB;Data Source=LAPTOP-UVA5Q9QT;Initial Catalog=LailoDWH;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Company",
+        "description": "DIM",
+        "columns": [
+          {
+            "name": "Công ty",
+            "dataType": "string",
+            "sourceColumn": "Công ty",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "LogoUrl",
+            "dataType": "string",
+            "sourceColumn": "LogoUrl",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Company",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [DIM].[Company].*   FROM [DIM].[Company] ",
+              "dataSource": "SqlServer LAPTOP-UVA5Q9QT LailoDWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [DIM].[Company].*   FROM [DIM].[Company] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Company"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "DIM"
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "description": "DIM",
+        "columns": [
+          {
+            "name": "Year Month",
+            "dataType": "dateTime",
+            "sourceColumn": "Year Month",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Year Quarter",
+            "dataType": "string",
+            "sourceColumn": "Year Quarter",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "Quarter Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Quarter Date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Month Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Month Date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "YearDate",
+            "dataType": "dateTime",
+            "sourceColumn": "YearDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [DIM].[Date].*   FROM [DIM].[Date] ",
+              "dataSource": "SqlServer LAPTOP-UVA5Q9QT LailoDWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [DIM].[Date].*   FROM [DIM].[Date] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Date"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "DIM"
+          }
+        ]
+      },
+      {
+        "name": "Product",
+        "description": "DIM",
+        "columns": [
+          {
+            "name": "Mã hàng hóa",
+            "dataType": "string",
+            "sourceColumn": "Mã hàng hóa",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Tên hàng hóa",
+            "dataType": "string",
+            "sourceColumn": "Tên hàng hóa",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Nhóm HHDV",
+            "dataType": "string",
+            "sourceColumn": "Nhóm HHDV",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ĐVT",
+            "dataType": "string",
+            "sourceColumn": "ĐVT",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Product",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [DIM].[Product].*   FROM [DIM].[Product] ",
+              "dataSource": "SqlServer LAPTOP-UVA5Q9QT LailoDWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [DIM].[Product].*   FROM [DIM].[Product] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Product"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "DIM"
+          }
+        ]
+      },
+      {
+        "name": "Lailo",
+        "description": "FACT",
+        "columns": [
+          {
+            "name": "Mã hàng hóa",
+            "dataType": "string",
+            "sourceColumn": "Mã hàng hóa",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Tên hàng hóa",
+            "dataType": "string",
+            "sourceColumn": "Tên hàng hóa",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Nhóm HHDV",
+            "dataType": "string",
+            "sourceColumn": "Nhóm HHDV",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ĐVT",
+            "dataType": "string",
+            "sourceColumn": "ĐVT",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Số lượng",
+            "dataType": "int64",
+            "sourceColumn": "Số lượng",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "Doanh thu",
+            "dataType": "int64",
+            "sourceColumn": "Doanh thu",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "Các khoản giảm trừ",
+            "dataType": "double",
+            "sourceColumn": "Các khoản giảm trừ",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Doanh thu thuần",
+            "dataType": "double",
+            "sourceColumn": "Doanh thu thuần",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Giá vốn",
+            "dataType": "int64",
+            "sourceColumn": "Giá vốn",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "Lợi nhuận",
+            "dataType": "int64",
+            "sourceColumn": "Lợi nhuận",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "Year Month",
+            "dataType": "dateTime",
+            "sourceColumn": "Year Month",
+            "formatString": "General Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Công ty",
+            "dataType": "string",
+            "sourceColumn": "Công ty",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Lailo",
+            "source": {
+              "type": "query",
+              "query": "SELECT [FACT].[Lailo].*   FROM [FACT].[Lailo]",
+              "dataSource": "SqlServer LAPTOP-UVA5Q9QT LailoDWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [FACT].[Lailo].*   FROM [FACT].[Lailo]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Lailo 8_2025",
+            "mode": "import",
+            "source": {
+              "type": "query",
+              "query": [
+                "SELECT [FACT].[Lailo].*   ",
+                "FROM [FACT].[Lailo]",
+                "WHERE [Year Month] = '2025-08'"
+              ],
+              "dataSource": "SqlServer LAPTOP-UVA5Q9QT LailoDWH"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [FACT].[Lailo].*   ",
+                  "FROM [FACT].[Lailo]",
+                  "WHERE [Year Month] = '2025-08'</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [FACT].[Lailo].*   FROM [FACT].[Lailo] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Lailo"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "FACT"
+          }
+        ]
+      },
+      {
+        "name": "All measures",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "All measures",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[All measures]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": " DATATABLE(\"All measures\", STRING, {{}})"
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "b146a904-1b24-4166-8353-0ec1f1f8806e",
+        "toCardinality": "many",
+        "fromTable": "Product",
+        "fromColumn": "Mã hàng hóa",
+        "toTable": "Lailo",
+        "toColumn": "Mã hàng hóa",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "96783de5-fe6c-4db9-9d71-22fc3d640cc0",
+        "fromTable": "Lailo",
+        "fromColumn": "Year Month",
+        "toTable": "Date",
+        "toColumn": "Year Month"
+      },
+      {
+        "name": "01dace57-3790-4d85-939c-8fe2ec8be465",
+        "fromTable": "Lailo",
+        "fromColumn": "Công ty",
+        "toTable": "Company",
+        "toColumn": "Công ty"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
