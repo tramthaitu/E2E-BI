@@ -72,7 +72,7 @@ pip install jupyter dagster dagster-webserver duckdb pandas sqlalchemy pyodbc op
 dagster project scaffold --name FabricDagster
 
 # 5. Navigate to the project folder
-cd Dagster
+cd FabricDagster
 
 # 6. Install the project in editable mode
 pip install -e ".[dev]"
