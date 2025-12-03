@@ -69,10 +69,10 @@ py -m venv .env
 pip install jupyter dagster dagster-webserver duckdb pandas sqlalchemy pyodbc openpyxl python-tabular
 
 # 4. Initialize Dagster Project (Optional - Only if starting fresh)
-dagster project scaffold --name FabricDagster
+dagster project scaffold --name Dagster
 
 # 5. Navigate to the project folder
-cd FabricDagster
+cd Dagster
 
 # 6. Install the project in editable mode
 pip install -e ".[dev]"
