@@ -1,6 +1,6 @@
 # End-to-End Business Intelligence Pipeline
 
-> A comprehensive Data Engineering and BI solution demonstrating a complete workflow from raw data ingestion to semantic modeling and reporting.
+> A comprehensive Data Engineering and BI solution demonstrating a complete workflow from raw data ingestion to semantic modeling and reporting, the data has been faked.
 
 ## 📖 Overview
 
@@ -46,14 +46,20 @@ We verify the data accuracy by running DAX queries (`EVALUATE`) directly against
 
 ---
 
+## 📊 Interactive Dashboards (Demo)
+
+### 1. Business Overview
+![Business Overview](https://github.com/user-attachments/assets/88f14295-c00e-4d56-8b8e-af1c0de641bb)
+
+### 2. Products Dashboard
+![Products](https://github.com/user-attachments/assets/32b99226-257b-4619-a9e4-ed38ef7b9519)
+
+### 3. Revenue, profit, and cost.
+![Revenue, profit, and cost](https://github.com/user-attachments/assets/33f4e9ab-5047-47ec-a27c-45ae057704dc)
+
 ## ⚙️ Setup & Installation
 
 To run this project locally, please follow these commands strictly to set up the environment and dependencies.
-
-### Prerequisites
-* Python 3.10+
-* SQL Server
-* Visual Studio (with SSAS extension)
 
 ### Installation Steps (Manual)
 Open your terminal (PowerShell/CMD) at the project root and run the following commands:
